@@ -11,12 +11,12 @@ interface IDefaultProviderProps {
 
 export const DashProvider = ({ children }: IDefaultProviderProps) => {
   const [open, setOpen] = useState(false);
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [contactId, setContactId] = useState();
-  const [contactName, setContactName] = useState<string>("");
-  const [contactEmail, setContactEmail] = useState<string>("");
-  const [contactTel, setContactTel] = useState<string>("");
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactTel, setContactTel] = useState("");
   const [contactPatch, setContactPatch] = useState({});
   const [number, setNumber] = useState<number>();
   const id = contactId;
