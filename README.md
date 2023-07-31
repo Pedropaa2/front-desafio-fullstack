@@ -10,6 +10,35 @@ O projeto pode ser construído com npm ou yarn, então escolha uma das abordagen
 
 ## Configuração de serviços
 
+### Backend (API)
+
+- Para baixar o projeto siga as instruções abaixo:
+
+```
+1. git clone git@github.com:Pedropaa2/back-desafio-fullstack.git
+2. code .
+```
+
+- Instale as dependências e inicie o servidor:
+
+```
+3. yarn install
+4. yarn dev
+```
+
+or
+
+```
+3. npm install
+4. npm run dev
+```
+
+Renomeie o arquivo `.env.example` para `.env` e crie suas variáveis ​​de ambiente e substitua-as. É muito importante para executar o servidor.
+
+Também estará junto com o repositório o documento do insomnia para auxiliá-lo nas funcionalidades das rotas.
+
+### FrontEnd
+
 ## Como Instalar
 
 - Para baixar o projeto siga as instruções abaixo:

@@ -1,4 +1,4 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 import React from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
@@ -13,15 +13,18 @@ interface IDefaultProviderProps {
 }
 
 export const LoginProvider = ({ children }: IDefaultProviderProps) => {
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
 
     if (!token) {
+      setLoading(false);
       return;
     }
     api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    setLoading(false);
   }, []);
 
   async function signIn(data: LoginData) {
@@ -33,7 +36,7 @@ export const LoginProvider = ({ children }: IDefaultProviderProps) => {
 
       window.localStorage.clear();
       window.localStorage.setItem("@TOKEN", token);
-
+      setLoading(false);
       toast.success("Login efetuado com sucesso");
       setTimeout(() => {
         navigate("/dashboard");
@@ -47,6 +50,8 @@ export const LoginProvider = ({ children }: IDefaultProviderProps) => {
     <LoginContext.Provider
       value={{
         signIn,
+        loading,
+        setLoading,
       }}
     >
       {children}

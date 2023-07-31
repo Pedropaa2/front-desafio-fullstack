@@ -24,7 +24,14 @@ export function Dash() {
     contactPatch,
     number,
   } = useContext(DashContext);
+  const token = localStorage.getItem("@TOKEN");
+  const navigation = useNavigate();
 
+  useEffect(() => {
+    if (!token) {
+      navigation("/");
+    }
+  }, [token, navigation]);
   const [client, setClient] = useState("");
   const [email, setEmail] = useState("");
 
